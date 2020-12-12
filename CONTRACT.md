@@ -22,14 +22,17 @@ Client <-- GAME_OVER <-- Server
 #### JOIN_GAME
 ```json
 {
-  "messageType": "JOIN_GAME"
+  "type": "JOIN_GAME"
 }
 ```
+
 #### MAKE_MOVE
 ```json
 {
-  "messageType": "MAKE_MOVE",
-  "board": "X  X  XOO"
+  "type": "MAKE_MOVE",
+  "data": {
+    "board": "X  X  XOO"
+  }
 }
 ```
 
@@ -38,17 +41,21 @@ Client <-- GAME_OVER <-- Server
 #### START_GAME
 ```json
 {
-  "messageType": "START_GAME",
-  "side": "X" | "O",
-  "turn": "X" | "O"
+  "type": "START_GAME",
+  "data": {
+    "side": "X" | "O",
+    "turn": "X" | "O"
+  }
 }
 ```
 
 #### MAKE_MOVE
 ```json
 {
-  "messageType": "MAKE_MOVE",
-  "board": "X  X   OO"
+  "type": "MAKE_MOVE",
+  "data": {
+    "board": "X  X   OO"
+  }
 }
 ```
 
@@ -57,7 +64,9 @@ Client <-- GAME_OVER <-- Server
 ```json
 {
   "messageType": "GAME_OVER",
-  "board": "XXXOO XO ",
-  "winner": "X" | "O"
+  "data": {
+    "board": "XXXOO XO ",
+    "winner": "X" | "O"
+  }
 }
 ```
