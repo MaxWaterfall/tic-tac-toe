@@ -1,5 +1,6 @@
 package com.maxwaterfall.tictactoe.enum
 
 enum class Side {
-    X, O
+  X,
+  O
 }
