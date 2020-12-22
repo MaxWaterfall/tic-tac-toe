@@ -22,15 +22,20 @@ Client <-- GAME_OVER <-- Server
 #### JOIN_GAME
 ```json
 {
-  "type": "JOIN_GAME"
+  "header": {
+    "type": "JOIN_GAME"
+  }
 }
 ```
 
 #### MAKE_MOVE
+
 ```json
 {
-  "type": "MAKE_MOVE",
-  "data": {
+  "header": {
+    "type": "MAKE_MOVE"
+  },
+  "body": {
     "board": "X  X  XOO"
   }
 }
@@ -39,21 +44,29 @@ Client <-- GAME_OVER <-- Server
 ### Server
 
 #### START_GAME
+
+`side` and `turn` can be `X` or `O`.
+
 ```json
 {
-  "type": "START_GAME",
-  "data": {
-    "side": "X" | "O",
-    "turn": "X" | "O"
+  "header": {
+    "type": "START_GAME"
+  },
+  "body": {
+    "side": "X",
+    "turn": "O"
   }
 }
 ```
 
 #### MAKE_MOVE
+
 ```json
 {
-  "type": "MAKE_MOVE",
-  "data": {
+  "header": {
+    "type": "MAKE_MOVE"
+  },
+  "body": {
     "board": "X  X   OO"
   }
 }
@@ -61,12 +74,16 @@ Client <-- GAME_OVER <-- Server
 
 #### GAME_OVER
 
+`winner` can be `X` or `O`.
+
 ```json
 {
-  "messageType": "GAME_OVER",
-  "data": {
+  "header": {
+    "type": "GAME_OVER"
+  },
+  "body": {
     "board": "XXXOO XO ",
-    "winner": "X" | "O"
+    "winner": "X"
   }
 }
 ```

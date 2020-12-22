@@ -10,7 +10,7 @@ import com.maxwaterfall.tictactoe.model.dto.client.ClientMessage
 import com.maxwaterfall.tictactoe.model.dto.client.MakeMove
 import com.maxwaterfall.tictactoe.model.dto.server.*
 import com.maxwaterfall.tictactoe.model.dto.server.MakeMove as ServerMakeMove
-import java.util.*
+import java.util.UUID
 import java.util.concurrent.ConcurrentHashMap
 import kotlin.random.Random
 import org.springframework.stereotype.Service
