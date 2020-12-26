@@ -1,5 +1,4 @@
 <script>
-  import GlobalState from "./enum/GlobalState"
   import { gameService } from "./services/DependencyService"
   import { onMount } from "svelte"
   import Game from "./views/Game.svelte"
@@ -14,7 +13,7 @@
 
 <style>
   :global(body) {
-    font-family: "Courier New", Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
   }
   * {
     text-align: center;
@@ -23,5 +22,5 @@
 
 <main>
   <h1>Tic Tac Toe</h1>
-  <Game />
+  <Game/>
 </main>
