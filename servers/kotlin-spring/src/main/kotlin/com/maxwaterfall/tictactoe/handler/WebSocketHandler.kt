@@ -35,6 +35,8 @@ class WebSocketHandler(
   }
 
   private fun sendMessage(id: String, message: ServerMessage) {
+    log.info("Sending message to {} {}", id, message)
+
     val session = sessions[id]
 
     session ?: return // TODO: Log or throw exception here?

@@ -91,6 +91,8 @@ class GameService : MessageListener {
 
   /** Sends a GAME_OVER message to both players in the game. */
   private fun sendGameOverMessage(game: Game, winner: Side) {
+    log.info("Game over! Game: {}", game)
+
     val message =
         ServerMessage(
             ServerMessageHeader(ServerMessageType.GAME_OVER), GameOver(game.board, winner))
@@ -114,17 +116,15 @@ class GameService : MessageListener {
     val playerSide = if (game.playerX == id) Side.X else Side.O
 
     // TODO: Don't blindly trust the client.
-    when (getGameState(game.board, playerSide)) {
+    game.board = board
+    when (getGameState(board, playerSide)) {
       GameState.WIN -> sendGameOverMessage(game, playerSide)
       GameState.DRAW -> sendGameOverMessage(game, Side.NONE)
       GameState.IN_PROGRESS -> {
-        game.board = board
         game.nextPlayer = if (id == game.playerX) game.playerO else game.playerX
         sendMakeMoveMessage(game.nextPlayer, game.board)
       }
     }
-
-    log.info("Player {} made move [{}]", id, board)
   }
 
   /**
