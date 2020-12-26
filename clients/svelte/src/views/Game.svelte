@@ -25,9 +25,7 @@
 {#if $game.globalState === GlobalState.GAME_OVER}
   <h2>{$game.side} - {$game.winner === $game.side ? 'Winner' : 'Loser'}!</h2>
   <Board disableBoard={true} board={$game.board} />
-  <button class="play-again-button"on:click={gameService.joinGame}>
-    <h2>
-      Play Again
-    </h2>
+  <button class="play-again-button" on:click={gameService.joinGame}>
+    <h2>Play Again</h2>
   </button>
 {/if}
