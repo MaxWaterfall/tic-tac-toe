@@ -5,7 +5,7 @@ static_sites:
   github:
     repo: MaxWaterfall/tic-tac-toe
     branch: main
-    deploy_on_push: true
+    deploy_on_push: false
   source_dir: clients/svelte
   build_command: npm install && npm run build
   output_dir: public
@@ -13,11 +13,12 @@ static_sites:
   - path: /
 
 services:
-  - name: server
-    github:
-      repo: MaxWaterfall/tic-tac-toe
-      branch: main
-      deploy_on_push: true
-    source_dir: servers/kotlin-spring
-    build_command: ./mvnw clean verify
-    dockerfile_path: servers/kotlin-spring/Dockerfile
+- name: server
+  github:
+    repo: MaxWaterfall/tic-tac-toe
+    branch: main
+    deploy_on_push: false
+  source_dir: servers/kotlin-spring
+  dockerfile_path: servers/kotlin-spring/Dockerfile
+  routes:
+  - path: /server
