@@ -6,7 +6,8 @@ import { readable } from "svelte/store"
  * Exposes a send function to send a message to the server.
  */
 const ws = function () {
-  const url = "ws://localhost:8080/ws/v1"
+  //const url = "ws://localhost:8080/ws/v1"
+  const url = "wss://maxwaterfall.com/server/ws/v1"
 
   const ws = new WebSocket(url)
   ws.onopen = () => console.debug(`Connected to ${url}`)
