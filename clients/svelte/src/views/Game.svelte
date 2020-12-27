@@ -23,7 +23,13 @@
     clickTile={gameService.makeMove} />
 {/if}
 {#if $game.globalState === GlobalState.GAME_OVER}
-  <h2>{$game.side} - {$game.winner === $game.side ? 'Winner' : 'Loser'}!</h2>
+  {#if $game.winner === 'NONE'}
+    <h2>{$game.side} - Draw!</h2>
+  {:else if $game.winner === $game.side}
+    <h2>{$game.side} - Winner!</h2>
+  {:else}
+    <h2>{$game.side} - Loser!</h2>
+  {/if}
   <Board disableBoard={true} board={$game.board} />
   <button class="play-again-button" on:click={gameService.joinGame}>
     <h2>Play Again</h2>

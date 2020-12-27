@@ -74,7 +74,7 @@ Client <-- GAME_OVER <-- Server
 
 #### GAME_OVER
 
-`winner` can be `X` or `O`.
+`winner` can be `X` or `O` or `NONE`.
 
 ```json
 {

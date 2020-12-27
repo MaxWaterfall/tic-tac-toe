@@ -7,7 +7,7 @@ import { readable } from "svelte/store"
  */
 const ws = function () {
   //const url = "ws://localhost:8080/ws/v1"
-  const url = "wss://maxwaterfall.com/server/ws/v1"
+  const url = "wss://tictactoe.maxwaterfall.com/server/ws/v1"
 
   const ws = new WebSocket(url)
   ws.onopen = () => console.debug(`Connected to ${url}`)
